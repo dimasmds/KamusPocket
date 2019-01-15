@@ -1,10 +1,10 @@
 package com.riotfallen.kamuspocket.db;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 import com.riotfallen.kamuspocket.model.Dictionary;
 
@@ -58,12 +58,28 @@ public class DictionaryHelper {
         return arrayList;
     }
 
-    public long insert(Dictionary dictionary, boolean isEnglish) {
+    public void beginTransaction() {
+        database.beginTransaction();
+    }
+
+    public void setTransactionSuccess() {
+        database.setTransactionSuccessful();
+    }
+
+    public void endTransaction() {
+        database.endTransaction();
+    }
+
+
+    public void insertTransaction(Dictionary dictionary, boolean isEnglish) {
         String tableName = isEnglish ? TABLE_ENG_IND : TABLE_IND_ENG;
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(WORD, dictionary.getWord());
-        initialValues.put(MEANING, dictionary.getMeaning());
-        return database.insert(tableName, null, initialValues);
+        String sql = "INSERT INTO " + tableName + " (" + WORD + ", " + MEANING +
+                ") VALUES (?,?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindString(1, dictionary.getWord());
+        statement.bindString(2, dictionary.getMeaning());
+        statement.execute();
+        statement.clearBindings();
     }
 
     public int delete(int id, boolean isEnglish) {

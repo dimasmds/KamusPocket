@@ -72,7 +72,7 @@ public class EngIndFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                   loadDictionary(editTextSearch.getText().toString());
+                    loadDictionary(editTextSearch.getText().toString());
                 }
                 return false;
             }
@@ -87,14 +87,14 @@ public class EngIndFragment extends Fragment {
         });
     }
 
-    private void loadDictionary(String query){
+    private void loadDictionary(String query) {
         dictionaries.clear();
-        try{
+        try {
             helper.open();
             dictionaries = helper.getWordByName(query, true);
             helper.close();
             adapter.addItem(dictionaries);
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

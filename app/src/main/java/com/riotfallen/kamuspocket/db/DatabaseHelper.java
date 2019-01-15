@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             WORD + " text not null, " +
             MEANING + " text not null);";
 
-    DatabaseHelper(Context context){
+    DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

@@ -11,19 +11,18 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:src="@drawable/ic_kamus_pocket"
-        android:contentDescription="@string/icon_preload" />
+        android:contentDescription="@string/icon_preload"
+        android:src="@drawable/ic_kamus_pocket" />
 
     <ProgressBar
         android:id="@+id/preLoadProgressBar"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="50dp" />
-
 
 </RelativeLayout>

@@ -29,7 +29,7 @@ public class DictionaryListAdapter extends RecyclerView.Adapter<DictionaryListAd
         return kamusArrayList;
     }
 
-    public void addItem(ArrayList<Dictionary> dictionaries){
+    public void addItem(ArrayList<Dictionary> dictionaries) {
         this.kamusArrayList = dictionaries;
         notifyDataSetChanged();
     }

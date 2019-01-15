@@ -53,35 +53,47 @@ public class PreLoadActivity extends AppCompatActivity {
                 ArrayList<Dictionary> dictionariesEnglish = preLoadRaw(true);
                 ArrayList<Dictionary> dictionariesIndonesian = preLoadRaw(false);
 
-                try{
+                try {
                     helper.open();
                     progress = 30;
                     publishProgress((int) progress);
                     double progressMaxInsert = 100;
-                    double progressDiff = (progressMaxInsert - progress ) / (dictionariesEnglish.size()
+                    double progressDiff = (progressMaxInsert - progress) / (dictionariesEnglish.size()
                             + dictionariesIndonesian.size());
 
-                    for(Dictionary dictionaryEnglish : dictionariesEnglish){
-                        helper.insert(dictionaryEnglish, true);
-                        progress += progressDiff;
-                        publishProgress((int)progress);
+                    helper.beginTransaction();
+                    try {
+                        for (Dictionary dictionaryEnglish : dictionariesEnglish) {
+                            helper.insertTransaction(dictionaryEnglish, true);
+                            progress += progressDiff;
+                            publishProgress((int) progress);
+                        }
+
+                        helper.setTransactionSuccess();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                    for (Dictionary dictionaryIndonesian : dictionariesIndonesian){
-                        helper.insert(dictionaryIndonesian, false);
-                        progress += progressDiff;
-                        publishProgress((int)progress);
+                    try {
+                        for (Dictionary dictionaryIndonesian : dictionariesIndonesian) {
+                            helper.insertTransaction(dictionaryIndonesian, false);
+                            progress += progressDiff;
+                            publishProgress((int) progress);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+                    helper.endTransaction();
 
                     helper.close();
                     prefConfig.setFirstRun(false);
                     publishProgress((int) maxProgress);
 
-                } catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
-                try{
+                try {
                     synchronized (this) {
                         this.wait(2000);
 

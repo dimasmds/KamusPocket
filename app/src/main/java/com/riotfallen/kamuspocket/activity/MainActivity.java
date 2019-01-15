@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void loadFragment(boolean isEnglish) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if(isEnglish){
+        if (isEnglish) {
             EngIndFragment engIndFragment = new EngIndFragment();
             transaction.replace(R.id.mainActivityFrameLayout, engIndFragment);
             transaction.commit();
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.navigationMenuEngInd:
                 loadFragment(true);
                 break;
-            case  R.id.navigationMenuIndEng:
+            case R.id.navigationMenuIndEng:
                 loadFragment(false);
                 break;
         }

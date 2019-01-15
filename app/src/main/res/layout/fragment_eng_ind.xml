@@ -23,19 +23,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:focusable="true"
-            android:imeOptions="actionSearch"
             android:hint="@string/cari_kata"
+            android:imeOptions="actionSearch"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
 
         <Button
             android:id="@+id/engIndFragmentButtonClear"
-            android:text="@string/clear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:background="?android:attr/selectableItemBackground" />
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/clear" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

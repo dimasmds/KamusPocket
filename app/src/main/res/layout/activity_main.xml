@@ -20,7 +20,7 @@
                 android:id="@+id/mainActivityToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                app:layout_scrollFlags="scroll|snap|enterAlways"/>
+                app:layout_scrollFlags="scroll|snap|enterAlways" />
         </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
@@ -34,8 +34,8 @@
         android:id="@+id/mainActivityNavigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
         android:layout_gravity="start"
+        android:background="@color/colorPrimary"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu" />
 </android.support.v4.widget.DrawerLayout>

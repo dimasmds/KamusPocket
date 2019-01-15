@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Kamus Pocket</string>
+    <string name="english_indonesia">English - Indonesia</string>
+    <string name="indonesia_english">Indonesia - English</string>
+    <string name="dummy_kata">Lorem Ipsum</string>
+    <string name="dummy_arti">Lorem ipsum dolor sit amet genuis ad ere ada aduaha iwdiad swaida siaow alsl wdla sdde alsa sleas</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">OPEN</string>
+    <string name="drawer_close">CLOSE</string>
+    <string name="cari_kata">Cari Kata</string>
+    <string name="app_first_run">com.riotfallen.kamuspocket.app_first_run</string>
+    <string name="icon_preload">Icon Preload</string>
+    <string name="clear">X</string>
+    <string name="detail_kata">Detail Kata</string>
+    <string name="dummy_word">Makan</string>
+    <string name="pengertian">Pengertian</string>
+</resources>
